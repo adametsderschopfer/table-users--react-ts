@@ -23,7 +23,7 @@ export enum ActionTypes {
 */
 
 const init: IAppState /* Initial state */ = {
-  isLoading: false,
+  isLoading: true,
   isError: false,
   errorMsg: null,
 };

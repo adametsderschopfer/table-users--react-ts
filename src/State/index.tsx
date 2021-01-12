@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore, Middleware } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
 import PropTypes, { InferProps } from "prop-types";
 import thunk from "redux-thunk";
@@ -9,14 +9,12 @@ import reducers from "./reducers";
 import { IAppState } from "./ducks/app";
 import { ITableState } from "./ducks/table";
 
-interface IRootState {
+export interface IRootState {
   table: ITableState;
   app: IAppState;
 }
 
-const middlewares: Middleware[] = [thunk];
-
-const enhancers = composeWithDevTools(applyMiddleware(...middlewares));
+const enhancers = composeWithDevTools(applyMiddleware(thunk));
 
 const store = createStore<IRootState, any, any, any>(reducers, enhancers);
 

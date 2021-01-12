@@ -1,0 +1,20 @@
+.Table .Table__current--container {
+  background: greenyellow;
+  max-width: 100%;
+  border-radius: 10px;
+
+  padding: 15px;
+  margin: 15px;
+}
+
+.Table .Table__current-item {
+  word-break: break-all;
+}
+
+.Table .Table__current-item span {
+  font-weight: 600;
+}
+
+.Table .Table__current-item .Table__current-item__nested {
+  margin-left: 15px;
+}

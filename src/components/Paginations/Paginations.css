@@ -1,0 +1,13 @@
+.Table .Table__paginations {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.Table .Table__paginations .active {
+  background: black;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
