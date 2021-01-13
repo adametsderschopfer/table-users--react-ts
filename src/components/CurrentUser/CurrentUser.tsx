@@ -16,42 +16,33 @@ export function CurrentUser({
         {Object.keys(user).length && (
           <>
             <div className="Table__current-item">
-              <span>id:</span> {user.id}
+              <span>Выбран пользователь:</span> {user.firstName}
             </div>
             <div className="Table__current-item">
-              <span>firstName:</span> {user.firstName}
-            </div>
-            <div className="Table__current-item">
-              <span>lastName:</span> {user.lastName}
-            </div>
-            <div className="Table__current-item">
-              <span>email:</span> {user.email}
-            </div>
-            <div className="Table__current-item">
-              <span>phone:</span> {user.phone}
+              <span>Описание</span>
+           <textarea>{{user.description}}</textarea>
+
             </div>
             <div className="Table__current-item">
               <span>adress:</span>
               <div className="Table__current-item__nested">
-                <span>city: </span>
-                {user.adress.city}
-              </div>
-              <div className="Table__current-item__nested">
-                <span>state: </span>
-                {user.adress.state}
-              </div>
-              <div className="Table__current-item__nested">
-                <span>streetAddress: </span>
+                <span>Адрес проживания: </span>
                 {user.adress.streetAddress}
               </div>
               <div className="Table__current-item__nested">
-                <span>zip: </span>
+                <span>Город: </span>
+                {user.adress.city}
+              </div>
+              <div className="Table__current-item__nested">
+                <span>Провинция/штат: </span>
+                {user.adress.state}
+              </div>
+              <div className="Table__current-item__nested">
+                <span>Индекс: </span>
                 {user.adress.zip}
               </div>
             </div>
-            <div className="Table__current-item">
-              <span>description:</span> {user.description}
-            </div>
+           
           </>
         )}
       </div>
