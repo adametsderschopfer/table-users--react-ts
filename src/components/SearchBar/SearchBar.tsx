@@ -12,7 +12,7 @@ export function SearchBar({
   setIsErrorSearch,
 }: InferProps<typeof SearchBar.propTypes>) {
   const [searchBar, setSearchBar] = useState("");
-  console.log(`isErrorSearch`, isErrorSearch);
+  
   return (
     <>
       <hr />
