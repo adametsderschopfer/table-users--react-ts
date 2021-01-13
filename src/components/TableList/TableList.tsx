@@ -1,23 +1,21 @@
 import PropTypes, { InferProps } from "prop-types";
-import { usePagination } from "./../../hooks/usePagination";
-import { TableHeader } from "./TableHeader/TableHeader";
 
 interface TableListProps {
   setCurrentUser: (id: string | number) => {};
+  currentPaginationPage: number;
 }
 
 export function TableList({
   list,
   setCurrentUser,
+  currentPaginationPage,
 }: TableListProps & InferProps<typeof TableList.propTypes>) {
-  const { currentPaginationPage } = usePagination();
-
   return (
     <tbody>
       {list &&
         list.length &&
         list[currentPaginationPage].map((i: any, idx: any) => (
-          <tr key={idx} onClick={(e: any) => setCurrentUser(i.id)}>
+          <tr key={idx} onClick={() => setCurrentUser(i.id)}>
             <td>{i.id}</td>
             <td>{i.firstName}</td>
             <td>{i.lastName}</td>
@@ -36,4 +34,5 @@ export function TableList({
 TableList.propTypes = {
   list: PropTypes.array,
   setCurrentUser: () => {},
+  currentPaginationPage: PropTypes.number,
 };

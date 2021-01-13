@@ -8,6 +8,45 @@
 
 }
 
+.Table .Table__list th {
+  position: relative;
+  padding-right: 35px !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+.Table .Table__list th:hover {
+  background: darkcyan;
+}
+
+.Table .Table__list th.elem::after {
+  content: "";
+  position: absolute;
+
+  right: 15px;
+
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-bottom: 5px solid black;
+}
+
+.Table .Table__list th.active::after {
+  content: "";
+  position: absolute;
+
+  right: 15px;
+
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-top: 5px solid black;
+}
+
 .Table .Table__list th,
 .Table .Table__list tbody td {
   border: 1px solid #000;

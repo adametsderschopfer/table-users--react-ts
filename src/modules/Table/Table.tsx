@@ -7,20 +7,19 @@ import { Loader } from "./../../components/Loader/Loader";
 import { ErrorBlank } from "./../../components/ErrorBlank/ErrorBlank";
 import { TableList } from "./../../components/TableList/TableList";
 import { CurrentUser } from "./../../components/CurrentUser/CurrentUser";
-
-import "./Table.css";
 import { Paginations } from "./../../components/Paginations/Paginations";
 import { usePagination } from "./../../hooks/usePagination";
-import { TableHeader } from './../../components/TableList/TableHeader/TableHeader';
+import { TableHeader } from "./../../components/TableList/TableHeader/TableHeader";
+
+import "./Table.css";
 
 const msg_empty = "Users not found ;(";
 
 export function Table() {
   const { data, isLoading, isError, errorMsg } = useGetUsers();
   const { currentUser, setCurrentUser } = useCurrentUser();
-  const { setSearchLine } = useSearch();
+  const { setSearchLine, isErrorSearch, setIsErrorSearch } = useSearch();
   const { paginations, setPagination, currentPaginationPage } = usePagination();
-  // const { setFilter } = useFilter();
 
   return (
     <main className="Table">
@@ -28,6 +27,8 @@ export function Table() {
         locked={isLoading}
         setSearchLine={setSearchLine}
         isError={isError}
+        isErrorSearch={isErrorSearch}
+        setIsErrorSearch={setIsErrorSearch}
       />
 
       {(isLoading && <Loader />) ||
@@ -38,8 +39,11 @@ export function Table() {
             <>
               <table className="Table__list">
                 <TableHeader />
-
-                <TableList list={data} setCurrentUser={setCurrentUser} />
+                <TableList
+                  list={data}
+                  setCurrentUser={setCurrentUser}
+                  currentPaginationPage={currentPaginationPage}
+                />
               </table>
               <Paginations
                 paginations={paginations}

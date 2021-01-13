@@ -1,24 +1,33 @@
-import PropTypes, { InferProps } from "prop-types";
+import { useFilter } from "../../../hooks/useFilter";
 
-interface TableHeaderProps {}
+const els = [
+  { name: "id", parent: "id" },
+  { name: "firstName", parent: "firstName" },
+  { name: "lastName", parent: "lastName" },
+  { name: "email", parent: "email" },
+  { name: "phone", parent: "phone" },
+  { name: "streetAddress", parent: "adress" },
+  { name: "city", parent: "adress" },
+  { name: "state", parent: "adress" },
+  { name: "zip", parent: "adress" },
+];
 
-export function TableHeader({}: TableHeaderProps &
-  InferProps<typeof TableHeader.propTypes>) {
+export function TableHeader() {
+  const { setFilter, els: elemsOfFilter } = useFilter();
+
   return (
     <thead>
       <tr>
-        <th>id</th>
-        <th>firstName</th>
-        <th>lastName</th>
-        <th>email</th>
-        <th>phone</th>
-        <th>Street Address</th>
-        <th>city</th>
-        <th>state</th>
-        <th>zip</th>
+        {els.map((i: any, idx) => (
+          <th
+            key={idx}
+            onClick={() => setFilter(i)}
+            className={elemsOfFilter[i.name] ? "active" : "elem"}
+          >
+            {i.name}
+          </th>
+        ))}
       </tr>
     </thead>
   );
 }
-
-TableHeader.propTypes = {};

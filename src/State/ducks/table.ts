@@ -1,8 +1,7 @@
 import { ActionTypes as app_ac } from "./app";
 import axios from "axios";
 import { API } from "./../../constants";
-import { /* Action, ActionCreator, */ Dispatch } from "redux";
-// import { ThunkAction } from "redux-thunk";
+import { Dispatch } from "redux";
 import { chunkedArray, countPagination } from "./../../helpers/index";
 
 /* ts */

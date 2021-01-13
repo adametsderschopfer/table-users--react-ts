@@ -19,7 +19,7 @@ export function Paginations({
               className={(currentPaginationPage === i && "active") || ""}
               onClick={() => setPagination(i)}
             >
-              Страница {i + 1}
+              Список №{i + 1}
             </button>
           ))}
       </div>
